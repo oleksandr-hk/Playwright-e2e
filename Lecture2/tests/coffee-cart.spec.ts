@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Verify user can add item to card', async ({ page }) => {
+test('Verify user can add item to cart', async ({ page }) => {
   await page.goto('https://coffee-cart.app/');
   await page.locator('[data-test="Espresso"]').click();
   await page.getByRole('listitem').filter({ hasText: 'cart (1)' }).click();
@@ -39,7 +39,7 @@ test('Verify user can update card items amount', async ({ page }) => {
 });
 
 
-test('Verify user can remove items from card', async ({ page }) => {
+test('Verify user can remove items from cart', async ({ page }) => {
   await page.goto('https://coffee-cart.app/');
   await page.locator('[data-test="Cappuccino"]').click();
   await page.getByRole('link', { name: 'Cart page' }).click();
@@ -47,7 +47,7 @@ test('Verify user can remove items from card', async ({ page }) => {
   await expect(page.getByRole('paragraph')).toContainText('No coffee, go add some.');
 });
 
-test('test verify user can add bonus item to card', async ({ page }) => {
+test('test verify user can add bonus item to cart', async ({ page }) => {
   await page.goto('https://coffee-cart.app/');
   await page.locator('[data-test="Cappuccino"]').click();
   await page.locator('[data-test="Americano"]').click();
